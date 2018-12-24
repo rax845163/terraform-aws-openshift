@@ -15,9 +15,9 @@ resource "aws_launch_template" "bastion" {
 
   image_id = "${local.base_image_id}"
 
-  instance_market_options = "${local.spot_type[var.use_spot ? "enabled" : "disabled"]}"
+  instance_market_options = "${local.spot_type["enabled"]}"
 
-  instance_type = "t2.large"
+  instance_type = "t2.micro"
 
   iam_instance_profile {
     arn = "${aws_iam_instance_profile.bastion.arn}"

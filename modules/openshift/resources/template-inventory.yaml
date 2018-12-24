@@ -17,10 +17,15 @@ ${openshift_deployment_type == "openshift-enterprise" ? "#" : ""}    - {id: 'cen
     openshift_release: "${openshift_major_version}"
     openshift_repos_enable_testing: ${openshift_repos_enable_testing}
     openshift_master_identity_providers:
-      - name: 'test_identity_provider'
-        login: true
-        challenge: true
-        kind: 'AllowAllPasswordIdentityProvider'
+    - name: github
+      kind: GitHubIdentityProvider
+      login: true
+      challenge: false
+      mapping_method: claim
+      clientID: 0f70b92761909708df70 
+      clientSecret: 2b8fc76f9b8a8c053d1dee9c393fd8d53377c5b9 
+      organizations: 
+      - test-santa
     os_sdn_network_plugin_name: 'redhat/openshift-ovs-networkpolicy'
     openshift_disable_check: 'disk_availability,memory_availability,docker_image_availability'
     openshift_master_cluster_hostname: ${master_domain}

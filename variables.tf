@@ -67,5 +67,5 @@ variable "platform_domain_administrator_email" {
 
 variable "region" {
   description = "Region to deploy the cluster into"
-  default = "ap-northeast-1"
+  default     = "us-west-2"
 }
